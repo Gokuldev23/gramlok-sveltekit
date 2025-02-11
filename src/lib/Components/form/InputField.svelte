@@ -2,7 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { createEventDispatcher } from 'svelte';
 
-	let { label, type = 'text', value = $bindable(), disabled,required = false, errorMsg} = $props();
+	let { label, type = 'text', value = $bindable(), disabled,required = false, errorMsg , name = ""} = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -21,6 +21,7 @@
 		bind:value
 		placeholder=""
 		id={label}
+		name={name}
 		oninput={handleDispatch}
 		autocomplete="off"
 		required={required}

@@ -2,7 +2,7 @@
 	import InputField from "./InputField.svelte";
 
 
-    let { countryCode = $bindable() , mobile = $bindable() , mobileErr } = $props()
+    let { countryCode = $bindable() , mobile = $bindable() , mobileErr , name = "" } = $props()
 
 </script>
 
@@ -11,5 +11,5 @@
     <select bind:value={countryCode} class="rounded-l-lg" name="" id="">
         <option value={countryCode}>{countryCode}</option>
     </select>
-    <InputField required={true} label={"Mobile No"} type={"number"} bind:value={mobile} errorMsg={mobileErr}/>
+    <InputField name={name} required={true} label={"Mobile No"} type={"number"} bind:value={mobile} errorMsg={mobileErr}/>
 </div>

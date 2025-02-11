@@ -1,6 +1,21 @@
 <script>
-	import Navbar from '$lib/Components/Navbar.svelte';
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
+	import Navbar from '$lib/Components/Navbar.svelte';
+	import { Toaster } from "$lib/Components/ui/sonner/index.js";
+
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
+
 	let { children } = $props()
 
 </script>
@@ -8,7 +23,10 @@
 
 <main>
 	<Navbar/>
-	{@render children()}
+	<div id="slot" class="min-h-screen bg-white">
+		{@render children()}
+	</div>
+	<Toaster richColors/>
 </main>
 
 <style>
