@@ -23,10 +23,10 @@
 
 <main>
 	<Navbar/>
-	<div id="slot" class="min-h-screen bg-white">
+	<div id="slot" class="min-h-screen bg-white py-10">
 		{@render children()}
 	</div>
-	<Toaster richColors/>
+	<Toaster richColors position="top-center"/>
 </main>
 
 <style>

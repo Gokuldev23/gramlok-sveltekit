@@ -15,3 +15,17 @@ export const getAuthorData = async (userUid) => {
         return {success:false,message:"error fetching"}
     }
 }
+
+export const getNewsComments = async (newsId) => {
+    let url = `${dataUrlRoot}/news/comments/${newsId}`
+    try {
+        let res = await fetch(url,{
+            method:'GET'
+        })
+        let result = await res.json()
+        return result
+    } catch (error) {
+        console.log(error)
+        return {success:false,message:"error fetching"}
+    }
+}

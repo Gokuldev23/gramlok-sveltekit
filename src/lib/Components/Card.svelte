@@ -6,6 +6,6 @@
 </script>
 
 
-<main class="{props.class} rounded-xl p-4 border border-slate-400 shadow-md shadow-slate-700">
+<main class="{props.class}  p-4 border border-slate-400 shadow-[10px_10px_0px_0px] shadow-blue-500 ">
     {@render children?.()}
 </main>
